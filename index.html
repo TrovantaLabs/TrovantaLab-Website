@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== Primary SEO ===== -->
+    <title>Trovanta — Smart POS & Business Software for Sri Lankan Retailers</title>
+    <meta name="description"
+        content="Trovanta is a smart POS system and software startup built for Sri Lankan retail & wholesale businesses. Manage inventory, sales analytics, and multi-device sync — online or offline.">
+    <meta name="keywords"
+        content="POS system Sri Lanka, point of sale software, retail software, inventory management, Trovanta, business software Sri Lanka, wholesale POS, offline POS">
+    <meta name="author" content="Trovanta">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://trovanta.com/">
+
+    <!-- ===== Open Graph (Facebook, LinkedIn, WhatsApp) ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trovanta.com/">
+    <meta property="og:title" content="Trovanta — Smart POS & Business Software for Sri Lankan Retailers">
+    <meta property="og:description"
+        content="The smarter way to run your business. Simple POS, real-time inventory, and deep analytics — built for Sri Lankan retail.">
+    <meta property="og:image" content="https://trovanta.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Trovanta">
+    <meta property="og:locale" content="en_LK">
+
+    <!-- ===== Twitter Card ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trovanta — Smart POS & Business Software">
+    <meta name="twitter:description"
+        content="The smarter way to run your business. Simple POS, real-time inventory, and deep analytics.">
+    <meta name="twitter:image" content="https://trovanta.com/og-image.png">
+
+    <!-- ===== Performance: Preconnect & Font Preload ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload the display (headline) font weight used above the fold -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons — defer with media trick to avoid render block -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Bricolage Grotesque', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563eb',
+                        'primary-dark': '#1d4ed8',
+                        accent: '#8b5cf6',
+                        darkBase: '#0f172a',
+                        lightBase: '#f8fafc',
+                    },
+                    animation: {
+                        'blob': "blob 7s infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <!-- Preload hero image so the above-the-fold mockup appears immediately -->
+    <link rel="preload" as="image" href="pos.png" type="image/png" fetchpriority="high">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- ===== JSON-LD Structured Data ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://trovanta.com/#organization",
+          "name": "Trovanta",
+          "url": "https://trovanta.com",
+          "logo": "https://trovanta.com/logo.png",
+          "description": "Trovanta is a software startup providing smart POS systems, custom web applications, enterprise software, and strategic financial consultations for Sri Lankan businesses.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "email": "hello@trovanta.com",
+            "areaServed": "LK",
+            "availableLanguage": ["English", "Sinhala", "Tamil"]
+          },
+          "sameAs": [
+            "https://www.facebook.com/trovanta",
+            "https://www.linkedin.com/company/trovanta",
+            "https://www.instagram.com/trovanta"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://trovanta.com/#software",
+          "name": "Trovanta POS",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web, Android, iOS",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Starter",
+              "price": "0",
+              "priceCurrency": "LKR",
+              "description": "Free plan for single-store retailers"
+            },
+            {
+              "@type": "Offer",
+              "name": "Business",
+              "price": "4500",
+              "priceCurrency": "LKR",
+              "description": "Standard plan for growing retail and wholesale businesses"
+            }
+          ],
+          "featureList": [
+            "Offline-first POS",
+            "Real-time inventory management",
+            "Multi-device sync",
+            "Sales analytics and reporting",
+            "Barcode scanner support"
+          ],
+          "provider": { "@id": "https://trovanta.com/#organization" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://trovanta.com/#website",
+          "url": "https://trovanta.com",
+          "name": "Trovanta",
+          "publisher": { "@id": "https://trovanta.com/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://trovanta.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body
+    class="bg-lightBase dark:bg-darkBase text-slate-900 dark:text-slate-100 transition-colors duration-500 overflow-x-hidden font-sans">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+
+    <!-- Background Animated Blobs -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none z-[-1] overflow-hidden opacity-50 dark:opacity-30">
+        <div
+            class="absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-blob dark:mix-blend-screen">
+        </div>
+        <div
+            class="absolute top-0 -right-4 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-blob animation-delay-2000 dark:mix-blend-screen">
+        </div>
+        <div
+            class="absolute -bottom-8 left-20 w-72 h-72 bg-emerald-300 rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-blob animation-delay-4000 dark:mix-blend-screen dark:bg-emerald-600">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div
+            class="container mx-auto px-6 py-4 flex justify-between items-center glass-panel rounded-full mt-4 max-w-7xl mx-auto border border-white/20 dark:border-white/10 relative z-50">
+            <a href="#"
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent hover-trigger">
+                Trovanta
+            </a>
+
+            <div class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="#product" class="hover:text-primary transition-colors hover-trigger">Product</a>
+                <a href="#features" class="hover:text-primary transition-colors hover-trigger">Features</a>
+                <a href="services.html" class="hover:text-primary transition-colors hover-trigger">Services</a>
+                <a href="#pricing" class="hover:text-primary transition-colors hover-trigger">Pricing</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle"
+                    class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-800 hover:border-slate-300 dark:hover:border-white/20 transition-all hover-trigger focus:outline-none shadow-sm"
+                    aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon text-sm text-slate-600 dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-sm text-yellow-400 hidden dark:block"></i>
+                </button>
+                <a href="#demo"
+                    class="hidden md:block py-2 px-6 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-medium hover:scale-105 transition-transform magnetic-btn">
+                    Get Demo
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen min-h-[100svh] pt-36 pb-10 lg:pt-48 lg:pb-12 overflow-hidden flex flex-col items-center text-center px-4" id="hero-section">
+
+        <!-- Soft animated background mesh -->
+        <div class="hero-bg-mesh" aria-hidden="true"></div>
+
+        <div class="container mx-auto max-w-4xl relative z-10">
+
+            <!-- Badge -->
+            <a href="#product" class="hero-badge hero-badge-anim group inline-flex items-center gap-2.5 py-1.5 px-4 rounded-full mb-10 border border-slate-200 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-sm hover:border-primary/40 transition-colors duration-300">
+                <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">New</span>
+                <span class="w-px h-3 bg-slate-300 dark:bg-white/20"></span>
+                <span class="text-[13px] text-slate-500 dark:text-slate-400 font-medium">POS Platform for Sri Lankan Retail</span>
+                <span class="text-slate-400 dark:text-slate-500 text-xs group-hover:translate-x-0.5 transition-transform">→</span>
+            </a>
+
+            <!-- Main Headline — line mask reveal -->
+            <h1 class="hero-headline font-display font-extrabold tracking-tight mb-8">
+                <span class="hero-line-wrap">
+                    <span class="hero-line-inner hero-line-1">The Smarter Way to</span>
+                </span>
+                <span class="hero-line-wrap">
+                    <span class="hero-line-inner hero-line-2 hero-accent">Run Your Business</span>
+                </span>
+            </h1>
+
+            <!-- Description -->
+            <p class="hero-description hero-fade-up hero-delay-1 text-slate-500 dark:text-slate-400 mb-10 max-w-xl mx-auto">
+                Trovanta gives you a beautifully simple POS, real-time inventory,
+                and deep analytics — so you can focus on growing, not managing.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="hero-fade-up hero-delay-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="#demo"
+                    class="hero-btn-primary w-full sm:w-auto px-7 py-3.5 rounded-xl bg-primary text-white font-semibold text-sm tracking-wide hover:bg-primary-dark transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-px magnetic-btn">
+                    Start Free Trial
+                </a>
+                <a href="#features"
+                    class="hero-btn-secondary w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-sm tracking-wide transition-all hover:-translate-y-px magnetic-btn border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-white/20 bg-white/50 dark:bg-white/5 backdrop-blur-sm">
+                    See how it works
+                </a>
+            </div>
+
+            <!-- Social proof -->
+            <div class="hero-proof hero-fade-up hero-delay-3 mt-8 flex items-center justify-center gap-6">
+                <div class="flex -space-x-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white dark:border-slate-900"></div>
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-400 to-purple-600 border-2 border-white dark:border-slate-900"></div>
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 border-2 border-white dark:border-slate-900"></div>
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-300 to-rose-500 border-2 border-white dark:border-slate-900"></div>
+                </div>
+                <p class="text-[13px] text-slate-500 dark:text-slate-400 font-medium">
+                    Trusted by <span id="hero-counter" class="text-slate-800 dark:text-slate-200 font-semibold">200+</span> retailers across Sri Lanka
+                </p>
+            </div>
+        </div>
+
+        <!-- Hero UI Mockup Illustration (Upper side peek) -->
+        <div class="w-full max-w-5xl mx-auto mt-12 md:mt-16 relative z-10 group px-4 md:px-0">
+            <div class="relative w-full max-w-5xl mx-auto transition-transform duration-700 xl:hover:-translate-y-2">
+                <!-- Laptop / card frame -->
+                <div class="relative rounded-[28px] md:rounded-[36px] border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-sm shadow-[0_30px_90px_-45px_rgba(15,23,42,0.35)] dark:shadow-[0_30px_90px_-45px_rgba(37,99,235,0.18)] p-3 sm:p-4 md:p-5">
+                    <!-- Screen bezel -->
+                    <div class="relative rounded-[18px] md:rounded-[24px] overflow-hidden border border-slate-200/70 dark:border-white/10 bg-white dark:bg-slate-900">
+                        <!-- Camera notch -->
+                        <div class="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 rounded-full bg-slate-900/5 dark:bg-white/10 z-20"></div>
+                        <div class="aspect-[16/10] w-full">
+                            <img src="pos.png" alt="Trovanta POS Dashboard" class="w-full h-full object-cover object-top" loading="eager" fetchpriority="high" decoding="async" />
+                        </div>
+
+                        <!-- Fade out bottom so it melts into the background -->
+                        <div class="absolute bottom-0 left-0 w-full h-24 md:h-36 bg-gradient-to-t from-lightBase dark:from-darkBase to-transparent z-10 pointer-events-none"></div>
+                    </div>
+                </div>
+
+                <!-- Laptop base shadow (subtle) -->
+                <div class="mx-auto mt-4 h-4 w-[78%] rounded-b-[999px] bg-slate-900/10 dark:bg-white/10 blur-md"></div>
+
+                <!-- Glow under mockup -->
+                <div class="absolute -bottom-12 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-primary/35 filter blur-[90px] rounded-[100%] z-[-1] opacity-40 xl:group-hover:opacity-70 transition-opacity duration-700 hidden md:block"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Features Section (Main Focus) -->
+    <section id="product" class="py-24 relative z-10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Everything You Need to Sell</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">A lightning-fast POS designed
+                    specifically for retail and wholesale businesses. Operate smoothly, even offline.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl feature-card scroll-reveal hover-trigger border border-slate-200 dark:border-white/10 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fast Billing Interface</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Check out customers in seconds.
+                        Optimized for speed to keep your queues moving with barcode scanner support.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl feature-card scroll-reveal hover-trigger border border-slate-200 dark:border-white/10 hover:border-accent/50 transition-all duration-300 transform hover:-translate-y-2 group delay-100">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-accent/10 dark:bg-accent/20 flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Inventory Management</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Real-time stock tracking, low stock
+                        alerts, and multi-location management all in one dashboard.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl feature-card scroll-reveal hover-trigger border border-slate-200 dark:border-white/10 hover:border-emerald-500/50 transition-all duration-300 transform hover:-translate-y-2 group delay-200">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Offline-First Capability</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Internet down? No problem. Continue
+                        selling offline and sync automatically once you are back online.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl feature-card scroll-reveal hover-trigger border border-slate-200 dark:border-white/10 hover:border-orange-500/50 transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-orange-500/10 dark:bg-orange-500/20 flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Reports & Analytics</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Make data-driven decisions with
+                        detailed sales, profit, and employee performance reports.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl feature-card scroll-reveal hover-trigger border border-slate-200 dark:border-white/10 hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-2 group delay-100 lg:col-span-2">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-pink-500/10 dark:bg-pink-500/20 flex items-center justify-center text-pink-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-laptop-mobile"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multi-Device Sync</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Access your POS from desktops,
+                        tablets, and phones simultaneously. Changes map across all devices instantly in real-time,
+                        whether you're at the counter or in the back office.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Trovanta Section -->
+    <section id="features"
+        class="py-24 relative z-10 bg-white/50 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Built For Growth.<br>Designed For You.</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg mb-8">We created Trovanta explicitly to address
+                        the pain points of modern retail. Complex software slows you down; our elegant UI accelerates
+                        your day-to-day operations.</p>
+
+                    <ul class="space-y-6">
+                        <li class="flex items-start group">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mt-1 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">Simple to use</h4>
+                                <p class="text-slate-600 dark:text-slate-400">Zero learning curve. Train new cashiers in
+                                    under 10 minutes.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mt-1 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">Built for Sri Lankan Businesses</h4>
+                                <p class="text-slate-600 dark:text-slate-400">Localized tax handling, currency settings,
+                                    and familiar workflows.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mt-1 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">Scalable Architecture</h4>
+                                <p class="text-slate-600 dark:text-slate-400">From a single store to a nationwide
+                                    franchise, Trovanta scales seamlessly.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="relative scroll-reveal">
+                    <!-- Abstract Visual for Why Section -->
+                    <div
+                        class="w-full h-[500px] glass-panel rounded-3xl p-6 relative overflow-hidden border border-slate-200 dark:border-white/10 group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 z-0"></div>
+
+                        <!-- Floating Data Cards -->
+                        <div
+                            class="absolute top-10 right-10 glass-panel p-4 rounded-xl shadow-lg border border-white/20 animate-float z-10 w-48 hover-trigger">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Daily
+                                    Sales</span>
+                                <i class="fa-solid fa-arrow-up text-green-500 text-xs"></i>
+                            </div>
+                            <div class="text-2xl font-bold">Rs. 142.5K</div>
+                        </div>
+
+                        <div
+                            class="absolute bottom-10 left-10 glass-panel p-4 rounded-xl shadow-lg border border-white/20 animate-float-delayed z-10 w-48 hover-trigger">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Active
+                                    Stock</span>
+                                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            </div>
+                            <div class="text-xl font-bold">4,209 Items</div>
+                        </div>
+
+                        <!-- Central Element -->
+                        <div
+                            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full border border-primary/20 flex items-center justify-center group-hover:border-primary/50 transition-colors duration-500">
+                            <div
+                                class="w-48 h-48 rounded-full border border-accent/20 flex items-center justify-center animate-[spin_20s_linear_infinite]">
+                                <div
+                                    class="w-32 h-32 rounded-full bg-gradient-to-tr from-primary to-accent opacity-20 blur-md">
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center text-4xl text-primary">
+                                <i class="fa-solid fa-store drop-shadow-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section id="services" class="py-28 relative z-10 w-full overflow-hidden">
+        <div class="absolute right-0 top-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="mb-16 scroll-reveal text-center relative z-10">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Our Expertise</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Beyond the POS</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">As a dedicated
+                    software startup, we don't just build systems. We build scalable digital ecosystems, custom web
+                    applications, and provide strategic financial advisory to elevate your enterprise.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl scroll-reveal hover-trigger border border-slate-200 dark:border-white/5 hover:border-primary/50 transition-all duration-500 transform hover:-translate-y-2 group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Web Development</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">High-performance,
+                            beautifully designed websites that establish a powerful digital identity for your business.
+                        </p>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl scroll-reveal delay-100 hover-trigger border border-slate-200 dark:border-white/5 hover:border-accent/50 transition-all duration-500 transform hover:-translate-y-2 group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Web Applications</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Complex, data-driven web
+                            applications designed for scale, speed, and seamless user experiences.</p>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl scroll-reveal delay-200 hover-trigger border border-slate-200 dark:border-white/5 hover:border-emerald-500/50 transition-all duration-500 transform hover:-translate-y-2 group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Enterprise Systems</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Robust architecture for
+                            ERP, CRM, and bespoke solutions to automate and manage large-scale operations.</p>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl scroll-reveal hover-trigger border border-slate-200 dark:border-white/5 hover:border-orange-500/50 transition-all duration-500 transform hover:-translate-y-2 group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Financial Consultations</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Expert financial
+                            strategies, accounting integrations, and growth consulting to maximize your enterprise ROI.
+                        </p>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl scroll-reveal delay-100 hover-trigger border border-slate-200 dark:border-white/5 hover:border-pink-500/50 transition-all duration-500 transform hover:-translate-y-2 group relative overflow-hidden lg:col-span-2">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Branding, SEO & Marketing</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">End-to-end growth strategies
+                            including visual identity, technical SEO, and performance-driven paid ad campaigns.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing"
+        class="py-24 relative z-10 bg-slate-50 dark:bg-slate-900/80 border-y border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Choose a plan that fits your
+                    business scale. Upgrade anytime.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Free Plan -->
+                <div
+                    class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-white/5 flex flex-col scroll-reveal">
+                    <div class="mb-8">
+                        <span
+                            class="px-3 py-1 text-xs font-semibold text-slate-500 bg-slate-200 dark:bg-slate-800 rounded-full">STARTER</span>
+                        <h3 class="text-2xl font-bold mt-4 mb-2">Free</h3>
+                        <div class="flex items-end">
+                            <span class="text-4xl font-extrabold">Rs. 0</span>
+                            <span class="text-slate-500 ml-1">/mo</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-2">Perfect for very small single stores.</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i> 1
+                            Register</li>
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i> Up
+                            to 500 Products</li>
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i>
+                            Basic Reporting</li>
+                        <li class="flex items-center text-sm text-slate-400 dark:text-slate-600"><i
+                                class="fa-solid fa-xmark mr-3"></i> No Multi-store</li>
+                    </ul>
+                    <a href="#demo"
+                        class="w-full py-3 rounded-full border border-slate-300 dark:border-slate-700 text-center font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors magnetic-btn hover-trigger">Start
+                        Free</a>
+                </div>
+
+                <!-- Standard Plan -->
+                <div
+                    class="glass-panel p-8 rounded-3xl border border-primary relative flex flex-col scroll-reveal transform lg:-translate-y-4 shadow-xl shadow-primary/10 z-10 bg-white/80 dark:bg-slate-900/90">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="bg-primary text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider">MOST
+                            POPULAR</span>
+                    </div>
+                    <div class="mb-8 mt-2">
+                        <span
+                            class="px-3 py-1 text-xs font-semibold text-primary bg-primary/10 rounded-full">BUSINESS</span>
+                        <h3 class="text-2xl font-bold mt-4 mb-2">Standard</h3>
+                        <div class="flex items-end">
+                            <span class="text-4xl font-extrabold text-primary">Rs. 4,500</span>
+                            <span class="text-slate-500 ml-1">/mo</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-2">For growing retail and wholesale.</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i> Up
+                            to 3 Registers</li>
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i>
+                            Unlimited Products</li>
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i>
+                            Advanced Analytics</li>
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i>
+                            Offline Mode</li>
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i> 24/7
+                            Support</li>
+                    </ul>
+                    <a href="#demo"
+                        class="w-full py-3 rounded-full bg-primary text-white text-center font-semibold hover:bg-primary-dark transition-colors shadow-lg hover:shadow-primary/40 magnetic-btn hover-trigger">Upgrade
+                        to Standard</a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div
+                    class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-white/5 flex flex-col scroll-reveal delay-100">
+                    <div class="mb-8">
+                        <span
+                            class="px-3 py-1 text-xs font-semibold text-accent bg-accent/10 rounded-full">ENTERPRISE</span>
+                        <h3 class="text-2xl font-bold mt-4 mb-2">Premium</h3>
+                        <div class="flex items-end">
+                            <span class="text-4xl font-extrabold">Custom</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-2">For multi-chain networks.</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i>
+                            Unlimited Registers</li>
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i>
+                            Multi-location Sync</li>
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i>
+                            Custom Software Integrations</li>
+                        <li class="flex items-center text-sm"><i class="fa-solid fa-check text-green-500 mr-3"></i>
+                            Dedicated Account Manager</li>
+                    </ul>
+                    <a href="#contact"
+                        class="w-full py-3 rounded-full border border-slate-300 dark:border-slate-700 text-center font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors magnetic-btn hover-trigger">Contact
+                        Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Testimonials -->
+    <section class="py-24 relative z-10 overflow-hidden">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <h2 class="text-2xl font-bold text-center mb-12 text-slate-400 uppercase tracking-widest scroll-reveal">
+                Trusted by Retailers</h2>
+
+            <!-- Infinite Scroll Logo Slider -->
+            <div
+                class="relative w-full flex align-center overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+                <div class="flex animate-scroll hover:animation-paused gap-16 py-4">
+                    <!-- Repeating logos -->
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        FRESK MART</div>
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        StyleHub</div>
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        UrbanAuto</div>
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        TechZone</div>
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        LankaWholesale</div>
+                    <!-- Duplicates for smooth scroll -->
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        FRESK MART</div>
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        StyleHub</div>
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        UrbanAuto</div>
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        TechZone</div>
+                    <div class="text-3xl font-bold text-slate-300 dark:text-slate-700 flex-shrink-0 cursor-default">
+                        LankaWholesale</div>
+                </div>
+            </div>
+
+            <!-- Testimonial Cards -->
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div
+                    class="glass-panel p-8 rounded-2xl scroll-reveal border border-slate-200 dark:border-white/5 relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-primary/20 absolute top-4 right-6"></i>
+                    <p class="text-slate-600 dark:text-slate-300 italic mb-6">"Switching to Trovanta was the best
+                        decision for our hardware store. The offline mode is a lifesaver during power cuts."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-tr from-primary to-accent rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Kasun Perera</h4>
+                            <p class="text-xs text-slate-500">Manager, BuildRight LK</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="glass-panel p-8 rounded-2xl scroll-reveal border border-slate-200 dark:border-white/5 relative delay-100">
+                    <i class="fa-solid fa-quote-left text-4xl text-primary/20 absolute top-4 right-6"></i>
+                    <p class="text-slate-600 dark:text-slate-300 italic mb-6">"The inventory management is seamless. We
+                        track our wholesale distributions accurately across three districts now."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-primary rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Amila Fernando</h4>
+                            <p class="text-xs text-slate-500">CEO, Fernando Distributors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact -->
+    <section id="demo" class="py-24 relative z-10 w-full">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div
+                class="glass-panel rounded-3xl p-8 md:p-16 text-center border border-primary/30 relative overflow-hidden shadow-2xl">
+                <!-- Abstract Glow -->
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10"></div>
+                <div class="absolute -top-24 -left-24 w-48 h-48 bg-primary/30 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-accent/30 rounded-full blur-3xl"></div>
+
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-6 relative z-10">Let's grow your business with
+                    Trovanta</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 mb-10 max-w-2xl mx-auto relative z-10">
+                    Connect with our sales team to see how Trovanta POS can be customized exactly for your workflow.
+                    Don't let old software hold you back.
+                </p>
+
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 relative z-10">
+                    <a href="https://wa.me/message/YOUR_NUMBER" target="_blank"
+                        class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#25D366] text-white font-semibold text-lg hover:bg-[#20bd5a] transition-all transform hover:shadow-lg hover:shadow-[#25D366]/30 flex items-center justify-center magnetic-btn">
+                        <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> Chat on WhatsApp
+                    </a>
+                    <a href="mailto:hello@trovanta.com"
+                        class="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-semibold text-lg hover:scale-105 transition-transform magnetic-btn flex items-center justify-center">
+                        <i class="fa-regular fa-envelope mr-2 text-xl"></i> Email Sales
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 dark:border-t dark:border-white/10 dark:bg-darkBase relative z-10 pt-16 pb-8">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-1">
+                    <h3
+                        class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent mb-4">
+                        Trovanta</h3>
+                    <p class="text-slate-500 text-sm mb-6">An innovative software startup delivering scalable POS
+                        solutions, enterprise web apps, and financial consulting.</p>
+                    <div class="flex space-x-4 text-slate-400">
+                        <a href="#" class="hover:text-primary transition-colors"><i
+                                class="fa-brands fa-facebook text-xl hover-trigger"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i
+                                class="fa-brands fa-linkedin text-xl hover-trigger"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i
+                                class="fa-brands fa-instagram text-xl hover-trigger"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 uppercase text-sm tracking-wider">Product</h4>
+                    <ul class="space-y-2 text-slate-500 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">POS Features</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">Inventory
+                                Management</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">Hardware &
+                                Devices</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 uppercase text-sm tracking-wider">Company</h4>
+                    <ul class="space-y-2 text-slate-500 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">About Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">Careers</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 uppercase text-sm tracking-wider">Legal</h4>
+                    <ul class="space-y-2 text-slate-500 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">Privacy Policy</a>
+                        </li>
+                        <li><a href="#" class="hover:text-primary transition-colors hover-trigger">Terms of Service</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 dark:border-white/10 pt-8 mt-8 text-center text-slate-500 text-sm">
+                <p>&copy; 2026 Trovanta. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+</body>
+
+</html>
