@@ -1,0 +1,438 @@
+/* =========== Base Setup & Variables =========== */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: rgba(0, 0, 0, 0.05);
+  --glass-blur: 12px;
+
+  --cursor-size: 8px;
+  --cursor-outline-size: 40px;
+}
+
+html.dark {
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: rgba(0, 0, 0, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+  cursor: none;
+  /* Hide default cursor on desktop */
+}
+
+/* Re-enable default cursor for touch devices */
+@media (max-width: 768px) {
+
+  html,
+  body {
+    cursor: auto;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.3);
+  color: inherit;
+}
+
+/* =========== Glassmorphism Utilities =========== */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px var(--glass-shadow), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+}
+
+html.dark .glass-panel {
+  box-shadow: 0 4px 30px var(--glass-shadow), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+/* =========== Custom Cursor =========== */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  background-color: #2563eb;
+  /* Primary color */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0) translate(-50%, -50%);
+  will-change: transform, opacity;
+  transition: opacity 0.3s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-outline-size);
+  height: var(--cursor-outline-size);
+  border: 1px solid rgba(37, 99, 235, 0.5);
+  /* Primary color */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0) translate(-50%, -50%);
+  will-change: transform, opacity, width, height;
+  transition: opacity 0.3s ease-in-out, width 0.2s ease, height 0.2s ease;
+}
+
+/* =========== Offscreen Rendering Optimizations =========== */
+/* Skip rendering below-the-fold sections until they enter the viewport */
+body > section {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 700px;
+}
+
+/* =========== Reduced Motion =========== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-blob,
+  .animate-scroll,
+  .animate-float,
+  .animate-float-delayed,
+  .hero-bg-mesh,
+  .hero-animated .hero-badge-anim,
+  .hero-animated .hero-line-1,
+  .hero-animated .hero-line-2,
+  .hero-animated .hero-fade-up {
+    animation: none !important;
+  }
+}
+
+/* Hide on Mobile */
+@media (hover: none) and (pointer: coarse),
+(max-width: 768px) {
+
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
+  }
+}
+
+/* Active states for cursor */
+.cursor-hover .cursor-outline {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(37, 99, 235, 0.1);
+  border-color: transparent;
+}
+
+.cursor-hover-btn .cursor-outline {
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  border-color: #8b5cf6;
+  /* Accent color */
+}
+
+/* =========== Scroll Reveal Animations =========== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+/* =========== Magnetic Buttons =========== */
+.magnetic-btn {
+  display: inline-block;
+  position: relative;
+  /* Will be handled by JS */
+}
+
+/* =========== Component Styles =========== */
+/* Gradient Text Animation */
+.animate-gradient {
+  background-size: 200% auto;
+  animation: bgPan 4s linear infinite;
+}
+
+@keyframes bgPan {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Floating Animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite 3s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Infinite Scroll Banner */
+.animate-scroll {
+  animation: scrollX 20s linear infinite;
+}
+
+.hover\:animation-paused:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollX {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+  /* Assuming duplicates allow a seamless 50% shift */
+}
+
+/* Delay fixes for blobs */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Navbar blur adjustment on scroll */
+#navbar.scrolled .glass-panel {
+  background: var(--glass-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* =========== Hero Typography (SaaS style) =========== */
+
+/* Display font — Bricolage Grotesque */
+.font-display {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+/* Fluid oversized headline */
+.hero-headline {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(2.75rem, 7.5vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+html.dark .hero-headline {
+  color: #f8fafc;
+}
+
+/* Accent span — soft static gradient, blue → indigo only. No animation. */
+.hero-accent {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Hero body copy — Inter, relaxed */
+.hero-description {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+/* Badge */
+.hero-badge {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Primary CTA */
+.hero-btn-primary {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+/* Shine sweep on hover */
+.hero-btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.hero-btn-primary:hover::after {
+  left: 140%;
+}
+
+.hero-btn-primary:hover {
+  box-shadow: 0 6px 28px rgba(37, 99, 235, 0.28);
+}
+
+/* Secondary CTA */
+.hero-btn-secondary {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+/* Social proof row */
+.hero-proof {
+  font-family: 'Inter', sans-serif;
+  opacity: 0.9;
+}
+
+/* ===========================================
+   Hero Entrance Animation System
+   Technique: Line-mask reveal + staggered fade
+   Easing: expo ease-out (Framer Motion default)
+   =========================================== */
+
+/* --- Animated background mesh --- */
+.hero-bg-mesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(37, 99, 235, 0.09) 0%, transparent 68%),
+    radial-gradient(ellipse 45% 35% at 88% 55%, rgba(79, 70, 229, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: meshBreathe 9s ease-in-out infinite;
+}
+
+@keyframes meshBreathe {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.65; transform: scale(1.04); }
+}
+
+/* --- Badge spring entrance --- */
+.hero-badge-anim {
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+}
+
+.hero-animated .hero-badge-anim {
+  animation: heroBadgeIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s forwards;
+}
+
+@keyframes heroBadgeIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --- Headline line-mask reveal ---
+   Each .hero-line-wrap acts as a mask (overflow:hidden).
+   The inner span slides up into view from below. */
+.hero-line-wrap {
+  display: block;
+  overflow: hidden;
+  /* Extra padding prevents descender clipping */
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+.hero-line-inner {
+  display: block;
+  transform: translateY(108%);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.hero-animated .hero-line-1 {
+  animation: heroLineSlide 0.88s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.hero-animated .hero-line-2 {
+  animation: heroLineSlide 0.88s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+}
+
+@keyframes heroLineSlide {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- Staggered fade + lift for body elements --- */
+.hero-fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: transform, opacity;
+}
+
+.hero-animated .hero-fade-up {
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-animated .hero-delay-1 { animation-delay: 0.50s; }
+.hero-animated .hero-delay-2 { animation-delay: 0.64s; }
+.hero-animated .hero-delay-3 { animation-delay: 0.78s; }
+
+@keyframes heroFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Number counter flash --- */
+#hero-counter {
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
